@@ -39,12 +39,12 @@ export class LinkedList {
 
 	head() {
 		if (this.headNode === null) return;
-		return this.headNode;
+		return this.headNode.value;
 	}
 
 	tail() {
 		if (this.headNode === null) return;
-		return this.tail;
+		return this.tail.value;
 	}
 
 	at(index) {
