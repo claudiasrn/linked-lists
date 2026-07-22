@@ -4,6 +4,7 @@ export class LinkedList {
 	constructor() {
 		this.headNode = null;
 		this.tail = null;
+		this.length = 0;
 	}
 
 	append(value) {
@@ -15,6 +16,8 @@ export class LinkedList {
 			this.tail.nextNode = node;
 			this.tail = node;
 		}
+
+		this.length++;
 	}
 
 	prepend(value) {
@@ -26,20 +29,12 @@ export class LinkedList {
 			node.nextNode = this.headNode;
 			this.headNode = node;
 		}
+
+		this.length++;
 	}
 
 	size() {
-		if (this.headNode === null) return 0;
-
-		let size = 1;
-		let currentNode = this.headNode;
-
-		while (currentNode.nextNode !== null) {
-			size++;
-			currentNode = currentNode.nextNode;
-		}
-
-		return size;
+		return this.length;
 	}
 
 	head() {
@@ -79,6 +74,7 @@ export class LinkedList {
 			this.headNode = this.headNode.nextNode;
 		}
 
+		this.length--;
 		return value;
 	}
 
@@ -133,6 +129,7 @@ export class LinkedList {
 
 		const tempList = new LinkedList();
 		for (let i = 0; i <= values.length - 1; i++) {
+			this.length++;
 			tempList.append(values[i]);
 		}
 
@@ -158,6 +155,8 @@ export class LinkedList {
 
 	removeAt(index) {
 		if (index < 0 || index + 1 > this.size()) throw new RangeError();
+
+		this.length--;
 
 		if (index === 0) {
 			this.headNode = this.headNode.nextNode;
