@@ -1,4 +1,4 @@
-import {Node} from "./Node.js";
+import { Node } from "./Node.js";
 
 export class LinkedList {
 	constructor() {
@@ -160,9 +160,9 @@ export class LinkedList {
 
 		if (index === 0) {
 			this.headNode = this.headNode.nextNode;
-            if (this.headNode === null) {
-                this.tail = null;
-            }
+			if (this.headNode === null) {
+				this.tail = null;
+			}
 			return;
 		}
 
